@@ -3,6 +3,13 @@
 library(tidyverse)
 library(plotly, ggplot2)
 
+#Carga de la base de datos
+
+
+library(readr)
+Smoker_G7 <- read.csv("C:\\Users\\felixlongart\\Documents\\Rstudio BBDD\\Smoker G7.csv")
+View(Smoker_G7)
+
 #Haré múltples dataframes que nos faciliten los cálculos
 
 DF1 <- na.omit(Smoker_G7) %>% 
