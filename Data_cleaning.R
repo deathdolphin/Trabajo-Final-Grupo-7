@@ -33,7 +33,18 @@ cigs_cleaned <- Winsorize(x, minval = NULL, maxval = NULL,
 #Creación df_cleaned
 
 df1_cleaned <- DF1 %>% 
-  mutate(cigs_per_day = cigs_cleaned)
+  mutate(cigs_per_day = cigs_cleaned) %>% 
+  separate_wider_delim(
+    blood_pressure,
+    delim = "/",
+    names = c("systolic_pressure", "dystolic_pressure"))
+  
+df1_cleaned$systolic_pressure <- as.numeric(df1_cleaned$systolic_pressure)
+df1_cleaned$dystolic_pressure <- as.numeric(df1_cleaned$dystolic_pressure)
+
+
+
+  
   
 
 
