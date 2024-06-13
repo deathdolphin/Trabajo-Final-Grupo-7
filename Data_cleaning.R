@@ -24,7 +24,10 @@ summary(cigs_cleaned) #17.93
 
 # Limpiar valores NA
 
-DF1$cigs_per_day[is.na(DF1$cigs_per_day)] <- 18
+Smoker_G7$cigs_per_day[is.na(Smoker_G7$cigs_per_day)] <- 18
+
+DF1 <- Smoker_G7 %>%
+  filter(current_smoker == "yes")
 
 x <- DF1$cigs_per_day
 cigs_cleaned <- Winsorize(x, minval = NULL, maxval = NULL,
@@ -41,6 +44,7 @@ df1_cleaned <- DF1 %>%
   
 df1_cleaned$systolic_pressure <- as.numeric(df1_cleaned$systolic_pressure)
 df1_cleaned$dystolic_pressure <- as.numeric(df1_cleaned$dystolic_pressure)
+
 
 
 
