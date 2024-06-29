@@ -114,6 +114,59 @@ str(DF2)
 DF2$heart_rate
 DF2$chol
 
+
+---
+~title: "trabajo final dashboard"
+author: "grupo 7"
+output: html_document
+       
+---
+
+```{r setup, include=FALSE}
+
+library(flexdashboard)
+library(plotly)
+library(tidyverse)
+library(DT)
+library(shiny)
+
+
+DF1 <- na.omit(Smoker_G7) %>% 
+  filter(current_smoker == "yes")
+
+library(readr)
+
+
+```
+
+Analisis Gafico sobre los fumadores
+=====================================  
+
+ Column {data-width=600}
+ ------------------------------------
+
+
+### sexo de los fumadores (sex)  
+
+```{r}
+
+### Grafico de sectores sobre el sexo de los fumadores 
+
+pie_chart <- plot_ly(
+  data = DF1, 
+  labels = ~sex, 
+  type = 'pie'
+) %>%
+  layout(
+    title = "",
+    xaxis = list(title = ""),
+    yaxis = list(title = "")
+  )
+
+pie_chart
+
+```
+
 DF2$promedio <- (DF2$chol + DF2$heart_rate)
 view(DF2$promedio <- (DF2$chol + DF2$heart_rate))
 
