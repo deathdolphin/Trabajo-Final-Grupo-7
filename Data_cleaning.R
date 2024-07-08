@@ -60,7 +60,8 @@ df2_cleaned <- Smoker_G7 %>%
 df2_cleaned$systolic_pressure <- as.numeric(df2_cleaned$systolic_pressure)
 df2_cleaned$dystolic_pressure <- as.numeric(df2_cleaned$dystolic_pressure)
 
-  
+df2_cleaned$sex <- factor(df2_cleaned$sex)
+df2_cleaned$current_smoker <- factor(df2_cleaned$current_smoker)  
   
 
 
