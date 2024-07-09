@@ -15,7 +15,8 @@ library(highcharter)
 library(htmltools)
 library(dplyr)
 library(gt)
-
+library(plotly)
+library(DT)
 ```
 
 ```{r}
@@ -28,7 +29,7 @@ DF1 <- na.omit(Smoker_G7) %>%
   filter(current_smoker == "yes")
 
 #limpieza de valores NA
-
+df3 <- subset(DF1, !is.na(DF1$cigs_per_day))
 
 ```
 
@@ -36,9 +37,20 @@ DF1 <- na.omit(Smoker_G7) %>%
 Column {data-width=650}
 -----------------------------------------------------------------------
 
-### Chart A
+### Grafico de sectores sobre el sexo de los fumadores.
 
 ```{r}
+
+# Grafico circular 
+DF1 %>% group_by(sex) %>%
+  summarise(count = n()) %>% 
+  hchart('pie', hcaes(x = sex, y = count, color = custom_colors)) %>% 
+  hc_add_theme(hc_theme_google()) %>%
+  hc_tooltip(pointFormat='<b>Proportion: </b> {point.percentage:,.2f}%>%') 
+ %>%
+  hc_title(text = 'Grafico de Sectores referente al sexo de los fumadores',
+           style(list(fontSize = '15px', fontWeigt = 'bold')) %>%
+              )
 
 ```
 
