@@ -1,4 +1,4 @@
-# Smokers
+no# Smokers
  
 ###### Univesidad Central de Venezuela, Catedra: Computacio-I
 
@@ -18,10 +18,6 @@ De esta manera todo nuestro trabajo tiene como finalidad describir las caracteri
 
 ### Objetivos Generales
 
-- Observar que sexo compone a la mayoria de la data suministrada, ¿hombres o mujeres?
-
-- Observar que rango de edades abarcan los fumadores dentro de la data.
-
 - Observar si existe alguna relacion entre la edad y la cantidad de cigarros fumados al dia.
 
 - Observar que relacion existe entre el sexo y la cantidad de cigarros fumados al dia.
@@ -29,6 +25,10 @@ De esta manera todo nuestro trabajo tiene como finalidad describir las caracteri
 ### Objetivos Específicos
 
 - Estudiar el comportamiento de los datos, depurando la data y omitiendo los registros con valores NA y a las personas que no son fumadoras (ya que estos no aportan información relevante).
+
+- Observar que sexo compone a la mayoria de la data suministrada, ¿hombres o mujeres?
+
+- Observar que rango de edades abarcan los fumadores dentro de la data.
 
 - Ordenar de forma ascendente todos los registros de los fumadores acorde a su edad.
 
