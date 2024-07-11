@@ -1,4 +1,4 @@
-pacman::p_load(tidyverse, pacman, DescTools)
+pacman::p_load(tidyverse, pacman, DescTools, moments, forcats)
 
 #Identificar Outliers en cigs_per_day 
 
@@ -59,6 +59,9 @@ df2_cleaned <- Smoker_G7 %>%
                        names= c("systolic_pressure", "dystolic_pressure"))
 df2_cleaned$systolic_pressure <- as.numeric(df2_cleaned$systolic_pressure)
 df2_cleaned$dystolic_pressure <- as.numeric(df2_cleaned$dystolic_pressure)
+
+df1_cleaned$sex <- factor(df1_cleaned$sex)
+df1_cleaned$current_smoker <- factor(df1_cleaned$current_smoker) 
 
 df2_cleaned$sex <- factor(df2_cleaned$sex)
 df2_cleaned$current_smoker <- factor(df2_cleaned$current_smoker)  
