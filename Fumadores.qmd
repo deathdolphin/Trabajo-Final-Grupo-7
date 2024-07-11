@@ -17,6 +17,10 @@ Toda la informacion empleada para el manejo de la base de datos fue extraida de 
 
 A continuacion, en la siguiente tabla se mostraran todas la estadisticas descriptivas para las 8 variables en estudio,
 
+
+
+
+
 ## ¿Existe algina relacion entre el numero de cigarros que una persona consuma al dia y su edad?
 
 A traves del analisis descriptivo bivariate (coeficiente de correlacion de Pearson) y el uso de graficos se determino que existe una correlacion lineal inversa entre el numero de cigarros que fuma una persona y su edad
@@ -28,6 +32,20 @@ df1_cleaned %>%
   geom_smooth()
 ```
 
-## ¿Habra alguna relacion entre alguna relacion existente entre el sexo de una persona y el numero de cigarros que fumen al dia?
+## Cigarros que consumen las personas dependiendo de su sexo
+
+De manera visual indicaremos que sexo dentro de la base datos consumen mas cigarros al dia, a traves del analisis descriptivo y el grafico que nos indica que generalmente el sexo mas propenso a consumir una mayor cantidad de cigarros al dia son los hombres mas que el grupo conformado por las mujeres
+
+```{r ¿Que sexo consume mas cigarros al dia los hombres o las mujeres?}
+
+df1_cleaned %>%
+  ggplot(aes(x = sex, y = cigs_per_day, fill = sex)) +
+  #geom_violin( width = 1.07) +
+  geom_boxplot()
+
+```
+## Conclusiones
+
+
 
 
