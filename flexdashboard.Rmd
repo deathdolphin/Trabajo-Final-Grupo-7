@@ -181,8 +181,194 @@ ggplotly(x)
   geom_histogram(binwidth = 34/12)
 
 ggplotly(s)
+```
+
+
+
+---
+
+```{r}
+#llamado de libreriaas
+library(flexdashboard)
+library(tidyverse)
+library(highcharter)
+library(htmltools)
+library(dplyr)
+library(gt)
+library(plotly)
+library(DT)
+library(magrittr)
+library(pacman)
+library(ggplot2)
+```
+
+```{r}
+#impotacion de la BBDD y DF
+library(readr)
+Smoker_G7 <- read_csv("C:/Users/Augus/OneDrive/Escritorio/Rstudio. Semestre I-2024/Smoker G7.csv")
+View(Smoker_G7)
+
+DF1 <- na.omit(Smoker_G7) %>% 
+  filter(current_smoker == "yes")
 
 ```
+
+
+
+```{r}
+
+pacman::p_load(tidyverse, pacman, DescTools, moments, forcats)
+
+#Identificar Outliers en cigs_per_day 
+
+DF1 <- na.omit(Smoker_G7) %>% 
+  filter(current_smoker == "yes")
+  DF1$sex <- factor(DF1$sex)
+  DF1$current_smoker <- factor(DF1$current_smoker)
+
+  
+# Winsorize cigs_per_day
+  
+x <- DF1$cigs_per_day
+
+cigs_cleaned <- Winsorize(x, minval = NULL, maxval = NULL,
+                          probs = c(0,0.92), na.rm = TRUE, 
+                          type = 1)
+
+# Limpiar valores NA
+
+Smoker_G7$cigs_per_day[is.na(Smoker_G7$cigs_per_day)] <- 18
+
+DF1 <- Smoker_G7 %>%
+  filter(current_smoker == "yes")
+
+x <- DF1$cigs_per_day
+cigs_cleaned <- Winsorize(x, minval = NULL, maxval = NULL,
+                          probs = c(0,0.92), na.rm = TRUE, 
+                          type = 1)
+
+#Creación df_cleaned
+
+df1_cleaned <- DF1 %>% 
+  mutate(cigs_per_day = cigs_cleaned) %>% 
+  separate_wider_delim(
+    blood_pressure,
+    delim = "/",
+    names = c("systolic_pressure", "dystolic_pressure"))
+  
+df1_cleaned$systolic_pressure <- as.numeric(df1_cleaned$systolic_pressure)
+df1_cleaned$dystolic_pressure <- as.numeric(df1_cleaned$dystolic_pressure)
+
+```
+
+
+
+Column {.tabset .tabset-fade data-width=500}
+-----------------------------------------------------------------------
+
+### Sexo de los fumadores.
+
+```{r}
+
+# Grafico circular 
+colores <- c("#FFC0CB", "#ADD8E6")
+df1_cleaned %>%
+  group_by(sex) %>%
+  summarise(count = n()) %>%
+  hchart(type = "pie", hcaes(x = sex, y = count, color = colores)) %>%
+  hc_add_theme(hc_theme_google()) %>%
+  hc_tooltip(pointFormat = 'Proportion: <b> {point.percentage:,.2f}%') %>%
+  hc_title(text = 'Sexo de los fumadores',  
+           style = list(fontSize = '15px', fontWeight = 'bold')) %>%
+  hc_credits(enabled = TRUE, text = 'Grupo 7')
+
+
+
+
+
+```
+
+
+### Rango de edades de los fumadores
+
+```{r}
+# Histograma sobre las edades
+df4_bracket <- df1_cleaned %>%
+  mutate(Edades = cut(age, breaks = c(30, 40, 50, 60, 70)))
+x <- df4_bracket %>%
+  ggplot(aes(x = Edades)) +
+  geom_bar(fill = '#ADD8E6') +
+  labs(title = "Edades de los fumadores", 
+       x = " Edades",
+       y = "Cantidad")
+    
+ ggplotly(x)  
+
+```
+
+
+
+### Promedio de cigarrillos consumidos por dia por rango de edades.
+
+```{r}
+
+    df3_bracket <- df1_cleaned %>%
+      mutate(edades = cut(age, breaks = c(31, 33, 35, 37, 39, 41, 43, 45, 47 ,49,
+                                          51,53,55,57,59,61,63,65,67,69)))
+    
+y <- df3_bracket %>%
+      group_by(edades) %>%
+      summarise(mean_cigs_per_day = mean(cigs_per_day)) %>%
+      ggplot(aes(x = edades, y = mean_cigs_per_day)) +
+      geom_point(size = 3,
+                 colour = "#ADD8E6") +
+      geom_segment(aes(x = edades,
+                       y = mean(df3_bracket$cigs_per_day),
+                       xend = edades,
+                       yend = mean_cigs_per_day),
+                   colour = "pink") +
+      geom_hline(yintercept = mean(df3_bracket$cigs_per_day),
+                 colour = "black", size = 1) +
+      theme(axis.text.x.bottom = element_text(angle = 20), text) +
+      labs(title = 
+             "Promedio de cigarrillos consumidos al día por rango de edades",
+           x ="Edades", y = "Cigarrillos consumidos al día")
+
+ggplotly(y)
+    
+```
+
+### Relacion entre el sexo y cigarrillos diarios
+```{r}
+
+x <- df1_cleaned %>%
+  ggplot(aes(x = sex, y = cigs_per_day)) +
+  #geom_violin( width = 1.07) +
+  geom_boxplot(fill = c("pink", "#ADD8E6")) +
+labs(title = 'Consumo de cigarrillos por sexo',
+     x = 'Sexo',
+     y = 'Consumo de cigarros diarios') 
+
+ 
+ggplotly(x)
+
+```
+
+### Cigarrillos fumados por dia
+```{r}
+# histograma sobre los cigarrillos fumados
+ s <- df1_cleaned %>%
+  ggplot(aes(x = cigs_per_day)) +
+  geom_histogram(binwidth = 34/12,
+                 fill = "#ADD8E6") +
+  labs(title = "Consumo diario de cigarrillos", 
+       x = "Consumo diario de cigarrillos", 
+       y = "Cantidad")
+
+ggplotly(s)
+
+```
+
 
 
 
