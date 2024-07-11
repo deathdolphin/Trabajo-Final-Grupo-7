@@ -1,0 +1,33 @@
+---
+title: "Analisis estadistico sobre el sexo de una persona y como esto influye para que sea fuamdora"
+author: "Armando Delfin, Eduardo Longart, Sonia Romero"
+format: pdf
+editor: visual
+---
+
+# Introduccion
+
+En este trabajo de investigacion se realizar un analisis descriptivo sobre una base de datos que contiene un numero de observaciones plasmadas en un registro con 3900 hombres y mujeres que son fumadores, a traves del uso de graficos y de estadisticas descriptivas, para obtener informacion y posteriormente hacer un estudio que nos permita conocer si existe una relacion entre la edad de las personas, su sexo y el numero de cigarros que consumen por dia.
+
+Lo que sea desea tener como resultado de este trabajo de investigacion es una estimacion basica enfocada a todos lo registros que contienen informacion de las personas que son fumadoras regulares, y de forma practica a traves del uso de graficos explicar las caracteristicas que posee una persona fumadora acorde a su sexo, edad y la cantidad de cigarros que fumen por dia.
+
+Toda la informacion empleada para el manejo de la base de datos fue extraida de https://www.kaggle.com/datasets/jacepranter/smoker-health-data, en la cual hay un total de 3900 registros de fumadores.
+
+## Analisis descriptivo
+
+A continuacion, en la siguiente tabla se mostraran todas la estadisticas descriptivas para las 8 variables en estudio,
+
+## ¿Existe algina relacion entre el numero de cigarros que una persona consuma al dia y su edad?
+
+A traves del analisis descriptivo bivariate (coeficiente de correlacion de Pearson) y el uso de graficos se determino que existe una correlacion lineal inversa entre el numero de cigarros que fuma una persona y su edad
+
+```{r Correlacion entre edad y cigarros consumidos por dia}
+df1_cleaned %>%
+  ggplot(aes(x = age, y = cigs_per_day, color = sex)) +
+  geom_point() +
+  geom_smooth()
+```
+
+## ¿Habra alguna relacion entre alguna relacion existente entre el sexo de una persona y el numero de cigarros que fumen al dia?
+
+

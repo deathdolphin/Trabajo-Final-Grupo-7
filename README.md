@@ -20,7 +20,7 @@ De esta manera todo nuestro trabajo tiene como finalidad describir las caracteri
 
 - Observar si existe alguna relacion entre la edad y la cantidad de cigarros fumados al dia.
 
-- Observar que relacion existe entre el sexo y la cantidad de cigarros fumados al dia.
+- Observar que sexo dentro de la base de datos fuma mas ¿hombre o mujeres?
 
 ### Objetivos Específicos
 
