@@ -7,7 +7,7 @@ output:
 ---
 
 ```{r}
-#llamado de libreriaas 
+#llamado de librerias 
 library(flexdashboard)
 library(tidyverse)
 library(highcharter)
@@ -262,7 +262,6 @@ df1_cleaned$dystolic_pressure <- as.numeric(df1_cleaned$dystolic_pressure)
 ```
 
 
-
 Column {.tabset .tabset-fade data-width=500}
 -----------------------------------------------------------------------
 
@@ -283,9 +282,6 @@ df1_cleaned %>%
   hc_credits(enabled = TRUE, text = 'Grupo 7')
 
 
-
-
-
 ```
 
 
@@ -304,6 +300,8 @@ x <- df4_bracket %>%
     
  ggplotly(x)  
 
+
+
 ```
 
 
@@ -312,7 +310,7 @@ x <- df4_bracket %>%
 
 ```{r}
 
-    df3_bracket <- df1_cleaned %>%
+ df3_bracket <- df1_cleaned %>%
       mutate(edades = cut(age, breaks = c(31, 33, 35, 37, 39, 41, 43, 45, 47 ,49,
                                           51,53,55,57,59,61,63,65,67,69)))
     
@@ -357,6 +355,7 @@ ggplotly(x)
 ### Cigarrillos fumados por dia
 ```{r}
 # histograma sobre los cigarrillos fumados
+
  s <- df1_cleaned %>%
   ggplot(aes(x = cigs_per_day)) +
   geom_histogram(binwidth = 34/12,
@@ -367,8 +366,5 @@ ggplotly(x)
 
 ggplotly(s)
 
+
 ```
-
-
-
-
