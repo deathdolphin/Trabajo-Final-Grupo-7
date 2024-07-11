@@ -6,8 +6,7 @@ output:
     vertical_layout: fill
 ---
 
-```{r setup, include=FALSE}
-
+```{r}
 #llamado de libreriaas 
 library(flexdashboard)
 library(tidyverse)
@@ -17,6 +16,9 @@ library(dplyr)
 library(gt)
 library(plotly)
 library(DT)
+library(magrittr)
+library(pacman)
+library(ggplot2)
 ```
 
 ```{r}
@@ -34,32 +36,48 @@ df3 <- subset(DF1, !is.na(DF1$cigs_per_day))
 ```
 
 
-Column {data-width=650}
+Column {data-width=400}
 -----------------------------------------------------------------------
 
-### Grafico de sectores sobre el sexo de los fumadores.
+### Sexo de los fumadores.
 
 ```{r}
 
 # Grafico circular 
-DF1 %>% group_by(sex) %>%
-  summarise(count = n()) %>% 
-  hchart('pie', hcaes(x = sex, y = count, color = custom_colors)) %>% 
-  hc_add_theme(hc_theme_google()) %>%
-  hc_tooltip(pointFormat='<b>Proportion: </b> {point.percentage:,.2f}%>%') 
- %>%
-  hc_title(text = 'Grafico de Sectores referente al sexo de los fumadores',
-           style(list(fontSize = '15px', fontWeigt = 'bold')) %>%
-              )
+custom_colors <- viridis::cividis(n = 2)
 
+         
+df3 %>%
+  group_by(sex) %>%
+  summarise(count = n()) %>%
+  hchart(type = "pie", hcaes(x = sex, y = count, color = custom_colors)) %>%
+  hc_add_theme(hc_theme_google()) %>%
+  hc_tooltip(pointFormat = 'Proportion: <b> {point.percentage:,.2f}%') %>%
+  hc_title(text = 'Sexo de los fumadores',  
+           style = list(fontSize = '15px', fontWeight = 'bold')) %>%
+  hc_credits(enabled = TRUE, text = 'Grupo 7')
+           
 ```
 
 Column {data-width=350}
 -----------------------------------------------------------------------
 
-### Chart B
+### Rango de edades de los fumadores
 
 ```{r}
+# Grafico de barras sobre las edades
+histogram_plot <- plot_ly(
+  data = df3, 
+  x = ~age, 
+  type = 'histogram'
+) %>%
+  layout(
+    title = "",
+    xaxis = list(title = "Edad)"),
+    yaxis = list(title = "Frecuencia")
+  )
+
+?histogram_plot
 
 ```
 
