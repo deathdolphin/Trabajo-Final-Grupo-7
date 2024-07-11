@@ -1,4 +1,4 @@
-pacman::p_load(tidyverse, pacman, DescTools, moments)
+pacman::p_load(tidyverse, pacman, DescTools, moments, forcats)
 
 #Identificar Outliers en cigs_per_day 
 
