@@ -69,3 +69,11 @@ df2_cleaned %>%
       labs(title = 
              "Promedio de cigarrillos consumidos al día por rango de edades",
            x ="", y = "cigarrillos consumidos al día")
+    
+  # Diseño de rangos de edades
+    
+    df4_bracket <- df1_cleaned %>%
+      mutate(edades = cut(age, breaks = c(30, 40, 50, 60, 70)))
+    df4_bracket %>%
+      ggplot(aes( x = edades)) +
+      geom_bar(fill = "brown")
