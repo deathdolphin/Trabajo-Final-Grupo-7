@@ -40,17 +40,17 @@ El analisis exploratorio de datos definido por Jonh W. Tukey, el cual es el trat
 
 En este trabajo de investigacion se extrajo toda la informacion necesaria de la base de datos de la siguiente manera:
 
-Lo primero que se llevó a cabo fue observar como se comportaban los datos y si dentro de la base de datos habian registros con valores nulos o valores atípicos. En el caso de la columna que contiene a la variable "cigs_per_day" se encontraban 14 registros con valores nulos, y más de 40 datos atípicos, por encima de 35 cigarros fumados diariamente, valor que fue definido como el límite superior de la distribución por medio de gráficos de caja y bigote.
+Lo primero que se llevó a cabo fue observar como se comportaban los datos y si dentro de la base de datos habian registros con valores nulos o valores atípicos. En el caso de la columna que contiene a la variable, cigarros consumidos al día, se encontraban 14 registros con valores nulos, y más de 40 datos atípicos, por encima de 35 cigarros fumados diariamente, valor que fue definido como el límite superior de la distribución por medio de gráficos de caja y bigote.
 
 Una vez explorada la base de datos lo siguiente a realizar fue la depuración de esta, empleando el método de remplazar dichos valores nulos por la media aritmética de la variable en estudio, y para los valores atípicos por encima del límite superior, 35, contarlos como registros de personas que fuman exactamente 35 cigarros al día.
 
-Luego de hacer es proceso de depuración, se estudiaron a las variables "sex" y "age" para determinar que tanto abarcaban esta dos variables dentro de la base de datos, ordenándolas de forma ascendente para hacer mas fácil el manejo de dichas variables dentro de la base de datos.
+Luego de hacer este proceso de depuración, se estudiaron a las variables sexo, y edad, para determinar que tanto abarcaban esta dos variables dentro de la base de datos, ordenándolas de forma ascendente para hacer mas fácil el manejo de dichas variables dentro de la base de datos.
 
-Al momento de finalizar todo el proceso de filtrado, depuracion y ordenamiento de los registros, el siguiente paso fue realizar gráficos que facilitaran las interpretaciones de los datos y asi poder transmitir de forma clara todos los resultados obtenidos de la investigación.
+Al momento de finalizar todo el proceso de filtrado, depuración y ordenamiento de los registros, el siguiente paso fue realizar gráficos que facilitaran las interpretaciones de los datos y asi poder transmitir de forma clara y concisa, todos los resultados obtenidos de la investigación.
 
 # Análisis Descriptivo
 
-A continuacion, en las siguientes tablas se muestran estadísticas descriptivas para las variables en estudio, Toda la informacion respecto a los datos a manejar fue extraida de <https://www.kaggle.com/datasets/jacepranter/smoker-health-data,> de la cual se estudia solo a los 1932 fumadores activos de entre los 3900 registros que incluyen ex-fumadores.
+A continuacion, en las siguientes tablas se muestran estadísticas descriptivas para las variables en estudio, Toda la informacion respecto a los datos a manejar fue extraída de <https://www.kaggle.com/datasets/jacepranter/smoker-health-data,> de la cual se estudia solo a los 1932 fumadores activos de entre los 3900 registros que incluyen ex-fumadores.
 
 -   En promedio, los fumadores consumen 18 cigarros diariamente, con una desviación estándar de 9 cigarros. Menos del 25% de ellos fuma más de 20 cigarros (un paquete) por día. La distribución es asimétrica positiva, y leptocúrtica.
 
@@ -160,7 +160,7 @@ En este gráfico se muestra la correlación lineal, viendo como se distancian la
 
 ## Cantidad de cigarros que consumen las personas dependiendo de su sexo
 
-De manera visual indicaremos que sexo dentro de la base datos consumen una mayor cantidad de cigarros por día, a través del análisis descriptivo y el gráfico que nos indica que generalmente el sexo mas propenso a consumir una mayor cantidad de cigarros al dia son los hombres en observación, comparado a la distribución conformada por las mujeres.
+De manera visual indicaremos que sexo dentro de la base datos consumen una mayor cantidad de cigarros por día, a través del análisis descriptivo y el gráfico que nos indica que generalmente el sexo más propenso a consumir una mayor cantidad de cigarros al dia son los hombres en observación, comparado a la distribución conformada por las mujeres.
 
 ```{r}
 #Importación de la BBDD
@@ -225,7 +225,7 @@ Dentro de este análisis estadistico descriptivo se han obtenido como resultados
 
 Así, se ha podido dar respuesta a las preguntas planteadas en este trabajo, pudiendo resumir en que, en promedio, de entre 1932 fumadores observados: los hombres fuman más que las mujeres, y los de una edad determinada suelen fumar más que las personas mayores a ellos.
 
-# Referencias
+## Bibliografía
 
 Tukey, J.W (1977) *Exploratory Data Analysis.*
 
@@ -234,9 +234,3 @@ Reading, MA: Addison-Wesley
 Kaggle.com *Smoker´s Health Data*
 
 Smoker's Health Data (kaggle.com)
-
-<!-- References will auto-populate in the refs div below -->
-
-::: {#refs}
-Tukey, J.W (1977) *Exploratory Data Analysis.* Reading, MA: Addison-Wesley
-:::
