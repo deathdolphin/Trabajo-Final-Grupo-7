@@ -34,6 +34,20 @@ format:
     keep-tex: true
 ---
 
+# ¿De que manera se manejo la base de datos suministrada?
+
+El analisis exploratorio de datos es una forma de analizar datos definidos por Jonh W. Tukey, el cual es el tratamiento estadistico al que se somete las muestras recogidas durante un proceso de investigacion en cualquier campo cientifico
+
+Antes de manejar la base de datos, conviene analizar los datos que se utilizaran. Esto permite observar las caracteristicas fundamentales de los mismos y comprender la estreuctura del conjuto de los datos, identificando la varieble que se tiene como objetivo y explorar las posibles tecnicas de modelado. (Tukey, J.W, 1977)
+
+En este trabajo de investigacion se extrajo toda la informacion necesaria de la base de datos de la siguiente manera:
+
+Lo primero que se llevo a cabo fue observar como dse comportaban los datos y si dentro de la base de datos habian registros con valores nulos (En el caso de la columna que contiene a la variable "cigs_per_day" se encontraban 14 registros con valores nulos). Una vez sabiendo todo esto lo siguiente que se realizo fue la depuracion de la data, filtrando solo los registros que son relevantes los cuales son aquellos que contienen a las poersonas que son fumadoras.
+
+Luego de hacer es proceso de depuracion, se estudiaron a las variables "sex" y "age" para determinar que tanto abarcaban esta dos variables dentro de la base de datos, ordenandolas de forma ascendente para hacer mas facil el manejo de dichas variables dentro de la base de datos.
+
+Al momento de finalizar todo el proceso de filtrado, depuracion y ordenamiento de los registros se procedio a realizar graficos que facilitaran las interpretaciones de los datos y asi poder transmitir de forma clara todos los resultados obtenidos de la investigacion.
+
 # Análisis Descriptivo
 
 A continuacion, en las siguientes tablas se muestran estadísticas descriptivas para las variables en estudio, Toda la informacion respecto a los datos a manejar fue extraida de <https://www.kaggle.com/datasets/jacepranter/smoker-health-data,> de la cual se estudia solo a los 1932 fumadores activos de entre los 3900 registros que incluyen ex-fumadores.
@@ -199,9 +213,17 @@ df1_cleaned %>%
   labs(title = "Distribución de consumo diario de cigarrillos respecto al sexo", x= "Sexo" , y = "Cigarrillos consumidos por día")
 ```
 
-Este gráfico emplea el poderoso five point summary (Tukey, 1977) a través de modelos de cajas y bigotes. Podemos observar , que el 3er cuartil de la distribución de las mujeres fumadoras es igual a la mediana de los hombres; 20 cigarros al día. De esto podemos derivar que menos del 25% de las mujeres fumadoras en observación consumen cantidades mayores a las de un paquete estándar de 20 cigarros, contrastado con que, por el otro lado, el 50% de los hombres observados fuman 20 cigarros o más. Fumar más de un paquete por día perece ser mucho más común entre los hombres fumadores obseravdos.
+Este gráfico emplea el poderoso 'five point summary' (Tukey, 1977) a través de modelos de cajas y bigotes. Podemos observar , que el 3er cuartil de la distribución de las mujeres fumadoras es igual a la mediana de los hombres; 20 cigarros al día. De esto podemos derivar que menos del 25% de las mujeres fumadoras en observación consumen cantidades mayores a las de un paquete estándar de 20 cigarros, contrastado con que, por el otro lado, el 50% de los hombres observados fuman 20 cigarros o más. Fumar más de un paquete por día perece ser mucho más común entre los hombres fumadores obseravdos.
 
 ## Conclusión
+
+Dentro de este análisis estadistico descriptivo se han obtenido como resultados:
+
+-   Una correlacion lineal inversa en cuanto a la edad de los fumadores y la cantidad cde cigarros que consumen por dia. Esto quiere decir que a medida que la edad de los fumadores observados se incrementaba, en promedio, podíamos ver un ligero decrecimiento en la cantidad de cigarros consumidos al día. Puede ser visto tambien desde la perspectiva opuesta, a medida que la edad decrecía, la media de cigarros consumidos al día tendía a incrementarse.
+
+-   Una disparidad considerable entre el consumo de cigarros por día entre hombres y mujeres fumadores, con una mayor proporción de hombres, el 50%, fumando más de un paquete (20 cigarrillos) por día, cantidades que a su vez, solo son correspondidas por menos de una cuarta parte, 25% , de las mujeres fumadoras observadas .
+
+Así, se ha podido dar respuesta a las preguntas planteadas en este trabajo, pudiendo resumir en que, en promedio, de entre 1932 fumadores observados: los hombres fuman más que las mujeres, y los de una edad determinada suelen fumar más que las personas mayores a ellos.
 
 # Results
 
@@ -216,6 +238,7 @@ Este gráfico emplea el poderoso five point summary (Tukey, 1977) a través de m
 <!-- References will auto-populate in the refs div below -->
 
 ::: {#refs}
+Tukey, J.W (1977) *Exploratory Data Analysis.* Reading, MA: Addison-Wesley
 :::
 
 # Appendix
