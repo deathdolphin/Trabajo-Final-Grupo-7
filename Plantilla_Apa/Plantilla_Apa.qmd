@@ -1,0 +1,93 @@
+---
+title: "Análisis Estadístico Descriptivo: Fumadores, Correlación Entre Edad y Cigarros Fumados Al Día, Diferencias de Consumo Entre Hombres y Mujeres"
+shorttitle: "Análisis Estadístico Descriptivo de 1932 Fumadores"
+course: Computación I
+professor: Jesús Ochoa
+duedate: 12/7/2024
+author:
+  - name: Armando Delfín
+    corresponding: false
+    affiliations:
+      - ref: UCV
+      - ref: DSP
+  - name: Eduardo Longaart
+    affiliations:
+      - ref: UCV
+      - ref: DSP
+  - name: Sonia Eveligret
+    affiliations: 
+      - ref: UCV
+      - ref: DSP
+affiliations:
+  - id: UCV
+    name: Universidad Central De Venezuela
+  - id: DSP
+    name: Departamento de Estadística y Probabilidad
+abstract: "En este trabajo de investigacion se realiza un análisis descriptivo sobre una base de datos que contiene un numero de observaciones plasmadas en un registro con 3900 hombres y mujeres que son fumadores, a traves del uso de graficos y de estadisticas descriptivas, para obtener informacion y posteriormente hacer un estudio que nos permita conocer si existe una relacion entre la edad de las personas, su sexo y el numero de cigarros que consumen por dia. Lo que sea desea tener como resultado de este trabajo de investigacion es una estimacion basica enfocada a todos lo registros que contienen informacion de las personas que son fumadoras regulares, y de forma practica a traves del uso de graficos explicar las caracteristicas que posee una persona fumadora acorde a su sexo, edad y la cantidad de cigarros que fumen por dia"
+
+keywords: [keyword1, keyword2, keyword3]
+bibliography: bibliography.bib
+lang: es
+format:
+  apaquarto-pdf:
+    documentmode: stu
+    keep-tex: true
+---
+
+# Análisis Descriptivo
+
+A continuacion, en las siguientes tablas se muestran estadísticas descriptivas para las variables en estudio, Toda la informacion respecto a los datos a manejar fue extraida de <https://www.kaggle.com/datasets/jacepranter/smoker-health-data,> de la cual se estudia solo a los 1932 fumadores activos de entre los 3900 registros que incluyen ex-fumadores.
+
+-   En promedio, los fumadores consumen 18 cigarros diariamente, con una desviación estándar de 9 cigarros. Menos del 25% de ellos fuma más de 20 cigarros (un paquete) por día. La distribución es asimétrica positiva, y leptocúrtica.
+
+-   En promedio, los fumadores tienen 48 años de edad, con una desviación estándar de 8 años. El 75% de ellos tiene 53 años o menos. La distribución es asimétrica positiva , y leptocúrtica.
+
+-   De todas las personas en observación, 1105 son de sexo masculino, y 827 de sexo femenino. Representando el 57% y 43% respectivamente.
+
+| Variable | Promedio | D. Estandar | Q1  | Q2  | Q3  | C.S  | Kurtosis |
+|----------|----------|-------------|-----|-----|-----|------|----------|
+| C.D      | 17.9     | 9.43        | 10  | 20  | 20  | 0.07 | 2.30     |
+| EDAD     | 47.7     | 7.97        | 41  | 46  | 53  | 0.51 | 2.40     |
+
+: Estadística Descriptiva Sobre las Variables Cuantitativas
+
+| Sexo  | Frecuencia Absoluta | Frecuencia Relativa | Frecuencia Relativa Porcentual |
+|---------------|----------------|----------------|-------------------------|
+| M     | 1105                | 0.57                | 57%                            |
+| F     | 827                 | 0.43                | 43%                            |
+| TOTAL | 1932                | 1                   | 1                              |
+
+: Frecuencias Relativas de los Fumadores Respecto a su Sexo
+
+## Análisis Bivariante: ¿Existe relacion entre la edad de los fumadores y la cantidad de cigarros que consumen al día?
+
+A traves del análisis descriptivo bivariante (coeficiente de correlacion de Pearson) y el uso de graficos se determino que existe una correlacion lineal inversa entre el numero de cigarros que fuma una persona y su edad
+
+| Covarianza | Índice de Correlación |
+|------------|-----------------------|
+| -5.30      | -0.07                 |
+
+La covarianza entre las dos variables edad y cigarros consumidos al día tiene un valor de covarianza negativo, lo que significa que tienen una relación negativa o inversa. A su vez, el índice de correlación, el cual nos indica la fuerza de la relación negativa antes descubierta es de -0.07. Teniendo en cuenta qu una relación inversa puede llegar a un máximo de -1, ésta correlación parece ser muy tenue.
+
+## Measures
+
+## Procedure
+
+# Results
+
+# Discussion
+
+## Limitations and Future Directions
+
+## Conclusion
+
+# References
+
+<!-- References will auto-populate in the refs div below -->
+
+::: {#refs}
+:::
+
+# Appendix
+
+# Title for Appendix

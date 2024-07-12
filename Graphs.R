@@ -25,9 +25,9 @@ df2_cleaned %>%
   geom_count()
 
 df1_cleaned %>%
-  ggplot(aes(x = sex, y = cigs_per_day, fill = sex)) +
+  ggplot(aes(x = sex, y = cigs_per_day, fill = "green")) +
   #geom_violin( width = 1.07) +
-  geom_boxplot()
+  geom_boxplot(fill = df1_cleaned$sex)
   
 
 df1_cleaned %>%
