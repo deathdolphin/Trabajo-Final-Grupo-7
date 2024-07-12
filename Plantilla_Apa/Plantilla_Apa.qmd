@@ -1,12 +1,12 @@
 ---
-title: "Análisis Estadístico Descriptivo: Fumadores, Correlación Entre Edad y Cigarros Fumados Al Día, Diferencias de Consumo Entre Hombres y Mujeres"
+title: "Análisis Estadístico Descriptivo: Fumadores, Correlación Entre Edad y Cigarros Fumados al Día, Diferencias de Consumo Entre Hombres y Mujeres"
 shorttitle: "Análisis Estadístico Descriptivo de 1932 Fumadores"
 course: Computación I
 professor: Jesús Ochoa
 duedate: 12/7/2024
 author:
   - name: Armando Delfín
-    corresponding: false
+    corresponding: true
     affiliations:
       - ref: UCV
       - ref: DSP
@@ -61,13 +61,86 @@ A continuacion, en las siguientes tablas se muestran estadísticas descriptivas 
 
 ## Análisis Bivariante: ¿Existe relacion entre la edad de los fumadores y la cantidad de cigarros que consumen al día?
 
-A traves del análisis descriptivo bivariante (coeficiente de correlacion de Pearson) y el uso de graficos se determino que existe una correlacion lineal inversa entre el numero de cigarros que fuma una persona y su edad
+A traves del análisis descriptivo bivariante (coeficiente de correlacion de Pearson) y el uso de graficos se determino que existe correlacion inversa entre el número de cigarros que fuma una persona y su edad
 
 | Covarianza | Índice de Correlación |
-|------------|-----------------------|
-| -5.30      | -0.07                 |
+|:----------:|:---------------------:|
+|   -5.30    |         -0.07         |
 
-La covarianza entre las dos variables edad y cigarros consumidos al día tiene un valor de covarianza negativo, lo que significa que tienen una relación negativa o inversa. A su vez, el índice de correlación, el cual nos indica la fuerza de la relación negativa antes descubierta es de -0.07. Teniendo en cuenta qu una relación inversa puede llegar a un máximo de -1, ésta correlación parece ser muy tenue.
+La covarianza entre las dos variables, edad, y cigarros consumidos al día, tienen un valor de covarianza negativo, lo que significa que tienen una relación negativa o inversa. A su vez, el índice de correlación, el cual nos indica la fuerza de la relación negativa antes descubierta es de -0.07. Teniendo en cuenta que una relación inversa puede llegar a un máximo de -1, ésta correlación parece ser muy tenue.
+
+Para observar estas dos variables gráficamente, nos referimos a la siguiente figura
+
+```{r}
+#| echo: false
+
+#Importación de la BBDD
+pacman::p_load(tidyverse, pacman, DescTools, moments, forcats, readr)
+setwd("C:/Users/arman/OneDrive/Escritorio/BBDD") 
+Smoker_G7 <- read.csv("Smoker G7.csv")
+
+#Limpieza de datos
+DF1 <- na.omit(Smoker_G7) %>% 
+  filter(current_smoker == "yes")
+  DF1$sex <- factor(DF1$sex)
+  DF1$current_smoker <- factor(DF1$current_smoker)
+
+# Winsorize cigs_per_day
+
+x <- DF1$cigs_per_day
+
+cigs_cleaned <- Winsorize(x, minval = NULL, maxval = NULL,
+                          probs = c(0,0.92), na.rm = TRUE, 
+                          type = 1)
+
+# Limpiar valores NA
+
+Smoker_G7$cigs_per_day[is.na(Smoker_G7$cigs_per_day)] <- 18
+
+DF1 <- Smoker_G7 %>%
+  filter(current_smoker == "yes")
+
+x <- DF1$cigs_per_day
+
+cigs_cleaned <- Winsorize(x, minval = NULL, maxval = NULL,
+                          probs = c(0,0.92), na.rm = TRUE, 
+                          type = 1)
+#Creación df_cleaned
+
+df1_cleaned <- DF1 %>% 
+  mutate(cigs_per_day = cigs_cleaned) %>% 
+  separate_wider_delim(
+    blood_pressure,
+    delim = "/",
+    names = c("systolic_pressure", "dystolic_pressure"))
+  
+df1_cleaned$systolic_pressure <- as.numeric(df1_cleaned$systolic_pressure)
+df1_cleaned$dystolic_pressure <- as.numeric(df1_cleaned$dystolic_pressure)
+#Gráficamos
+
+ df3_bracket <- df1_cleaned %>%
+      mutate(edades = cut(age, breaks = c(31, 33, 35, 37, 39, 41, 43, 45, 47 ,49,
+                                          51,53,55,57,59,61,63,65,67,69)))
+    
+    df3_bracket %>%
+      group_by(edades) %>%
+      summarise(mean_cigs_per_day = mean(cigs_per_day)) %>%
+      ggplot(aes(x = edades, y = mean_cigs_per_day)) +
+      geom_point(size = 3,
+                 colour = "turquoise") +
+      geom_segment(aes(x = edades,
+                       y = mean(df3_bracket$cigs_per_day),
+                       xend = edades,
+                       yend = mean_cigs_per_day),
+                   colour = "orange") +
+      geom_hline(yintercept = mean(df3_bracket$cigs_per_day),
+                 colour = "gray", size = 1) +
+      theme(axis.text.x.bottom = element_text(angle = 20), text) +
+      labs(title = 
+             "Promedio de cigarrillos consumidos al día por rango de edades",
+           x ="", y = "cigarrillos consumidos al día")
+    
+```
 
 ## Measures
 
