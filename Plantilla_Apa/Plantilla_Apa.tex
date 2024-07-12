@@ -153,21 +153,21 @@ Probabilidad}}
 
 
 
-\abstract{En este trabajo de investigacion se realiza un análisis
-descriptivo sobre una base de datos que contiene un numero de
-observaciones plasmadas en un registro con 3900 hombres y mujeres que
-son fumadores, a traves del uso de graficos y de estadisticas
-descriptivas, para obtener informacion y posteriormente hacer un estudio
-que nos permita conocer si existe una relacion entre la edad de las
-personas, su sexo y el numero de cigarros que consumen por dia. Lo que
-sea desea tener como resultado de este trabajo de investigacion es una
-estimacion basica enfocada a todos lo registros que contienen
-informacion de las personas que son fumadoras regulares, y de forma
-practica a traves del uso de graficos explicar las caracteristicas que
-posee una persona fumadora acorde a su sexo, edad y la cantidad de
-cigarros que fumen por dia}
+\abstract{En este trabajo de investigación se realiza un análisis
+descriptivo sobre una base de datos que contiene un número de
+observaciones plasmadas en un registro con 3900 hombres y mujeres
+fumadores y ex-fumadores, haciendo uso de gráficos, y de estadísticas
+descriptivas para obtener información con la cual posteriormente hacer
+un estudio que nos permita conocer si existe una relacion entre la edad
+de las personas, su sexo y el numero de cigarros que consumen por dia.
+Lo que sea desea tener como resultado de este trabajo de investigación,
+es una estimación básica de lo anterior mencionado partiendo desde todos
+lo registros que contengan información de las personas que son fumadores
+regulares, y de forma práctica, a través del uso de graficos y medidas
+descriptivas, encontrar caracteristicas asociadas a quellos que consuman
+mayores cantidades de cigarros diariamente.}
 
-\keywords{keyword1, keyword2, keyword3}
+\keywords{Fumadores, Características, Descriptivas}
 
 \authornote{ 
 
@@ -250,40 +250,44 @@ to Armando Delfín}
 \setlength\LTleft{0pt}
 
 
-\section{¿De que manera se manejo la base de datos
-suministrada?}\label{de-que-manera-se-manejo-la-base-de-datos-suministrada}
+\section{¿De que manera se han manejado los datos
+suministrados?}\label{de-que-manera-se-han-manejado-los-datos-suministrados}
 
-El analisis exploratorio de datos es una forma de analizar datos
-definidos por Jonh W. Tukey, el cual es el tratamiento estadistico al
-que se somete las muestras recogidas durante un proceso de investigacion
-en cualquier campo cientifico
-
-Antes de manejar la base de datos, conviene analizar los datos que se
+El analisis exploratorio de datos definido por Jonh W. Tukey, el cual es
+el tratamiento estadístico al que se someten las muestras recogidas
+durante un proceso de investigación en cualquier campo científico. Antes
+de manejar la base de datos, conviene analizar los datos que se
 utilizaran. Esto permite observar las caracteristicas fundamentales de
-los mismos y comprender la estreuctura del conjuto de los datos,
-identificando la varieble que se tiene como objetivo y explorar las
-posibles tecnicas de modelado. (Tukey, J.W, 1977)
+los mismos y comprender la estructura del conjuto de los datos,
+identificando la variable que se tiene como objetivo y explorando las
+posibles técnicas de modelado. (Tukey, J.W, 1977)
 
 En este trabajo de investigacion se extrajo toda la informacion
 necesaria de la base de datos de la siguiente manera:
 
-Lo primero que se llevo a cabo fue observar como dse comportaban los
+Lo primero que se llevó a cabo fue observar como se comportaban los
 datos y si dentro de la base de datos habian registros con valores nulos
-(En el caso de la columna que contiene a la variable ``cigs\_per\_day''
-se encontraban 14 registros con valores nulos). Una vez sabiendo todo
-esto lo siguiente que se realizo fue la depuracion de la data, filtrando
-solo los registros que son relevantes los cuales son aquellos que
-contienen a las poersonas que son fumadoras.
+o valores atípicos. En el caso de la columna que contiene a la variable
+``cigs\_per\_day'' se encontraban 14 registros con valores nulos, y más
+de 40 datos atípicos, por encima de 35 cigarros fumados diariamente,
+valor que fue definido como el límite superior de la distribución por
+medio de gráficos de caja y bigote.
 
-Luego de hacer es proceso de depuracion, se estudiaron a las variables
+Una vez explorada la base de datos lo siguiente a realizar fue la
+depuración de esta, empleando el método de remplazar dichos valores
+nulos por la media aritmética de la variable en estudio, y para los
+valores atípicos por encima del límite superior, 35, contarlos como
+registros de personas que fuman exactamente 35 cigarros al día.
+
+Luego de hacer es proceso de depuración, se estudiaron a las variables
 ``sex'' y ``age'' para determinar que tanto abarcaban esta dos variables
-dentro de la base de datos, ordenandolas de forma ascendente para hacer
-mas facil el manejo de dichas variables dentro de la base de datos.
+dentro de la base de datos, ordenándolas de forma ascendente para hacer
+mas fácil el manejo de dichas variables dentro de la base de datos.
 
 Al momento de finalizar todo el proceso de filtrado, depuracion y
-ordenamiento de los registros se procedio a realizar graficos que
-facilitaran las interpretaciones de los datos y asi poder transmitir de
-forma clara todos los resultados obtenidos de la investigacion.
+ordenamiento de los registros, el siguiente paso fue realizar gráficos
+que facilitaran las interpretaciones de los datos y asi poder transmitir
+de forma clara todos los resultados obtenidos de la investigación.
 
 \section{Análisis Descriptivo}\label{anuxe1lisis-descriptivo}
 
@@ -367,10 +371,10 @@ EDAD & 47.7 & 7.97 & 41 & 46 & 53 & 0.51 & 2.40 \\
 \end{longtable}
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2083}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2222}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2222}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.3472}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2394}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2394}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2394}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2817}}@{}}
 \caption{Frecuencias Relativas de los Fumadores Respecto a su
 Sexo}\tabularnewline
 \toprule\noalign{}
@@ -453,12 +457,13 @@ De manera visual indicaremos que sexo dentro de la base datos consumen
 una mayor cantidad de cigarros por día, a través del análisis
 descriptivo y el gráfico que nos indica que generalmente el sexo mas
 propenso a consumir una mayor cantidad de cigarros al dia son los
-hombres mas que el grupo conformado por las mujeres.
+hombres en observación, comparado a la distribución conformada por las
+mujeres.
 
 \includegraphics{Plantilla_Apa_files/figure-pdf/unnamed-chunk-2-1.pdf}
 
 Este gráfico emplea el poderoso `five point summary' (Tukey, 1977) a
-través de modelos de cajas y bigotes. Podemos observar , que el 3er
+través de modelos de cajas y bigotes. Podemos observar , que el tercer
 cuartil de la distribución de las mujeres fumadoras es igual a la
 mediana de los hombres; 20 cigarros al día. De esto podemos derivar que
 menos del 25\% de las mujeres fumadoras en observación consumen
@@ -494,20 +499,13 @@ trabajo, pudiendo resumir en que, en promedio, de entre 1932 fumadores
 observados: los hombres fuman más que las mujeres, y los de una edad
 determinada suelen fumar más que las personas mayores a ellos.
 
-\section{Results}\label{results}
+Tukey, J.W (1977) \emph{Exploratory Data Analysis.}
 
-\section{Discussion}\label{discussion}
+Reading, MA: Addison-Wesley
 
-\subsection{Limitations and Future
-Directions}\label{limitations-and-future-directions}
+Kaggle.com \emph{Smoker´s Health Data}
 
-\subsection{Conclusion}\label{conclusion}
-
-\section{References}\label{references}
-
-\appendix
-
-\section{Title for Appendix}\label{title-for-appendix}
+Smoker's Health Data (kaggle.com)
 
 
 
