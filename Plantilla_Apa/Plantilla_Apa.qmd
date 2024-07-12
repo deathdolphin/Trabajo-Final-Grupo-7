@@ -59,7 +59,7 @@ A continuacion, en las siguientes tablas se muestran estadísticas descriptivas 
 
 : Frecuencias Relativas de los Fumadores Respecto a su Sexo
 
-## Análisis Bivariante: ¿Existe relacion entre la edad de los fumadores y la cantidad de cigarros que consumen al día?
+## Análisis Bivariante: ¿Existe Relacion Entre la Edad de los Fumadores y la Cantidad de Cigarros que Consumen al día?
 
 A traves del análisis descriptivo bivariante (coeficiente de correlacion de Pearson) y el uso de graficos se determino que existe correlacion inversa entre el número de cigarros que fuma una persona y su edad
 
@@ -127,14 +127,14 @@ df1_cleaned$dystolic_pressure <- as.numeric(df1_cleaned$dystolic_pressure)
       summarise(mean_cigs_per_day = mean(cigs_per_day)) %>%
       ggplot(aes(x = edades, y = mean_cigs_per_day)) +
       geom_point(size = 3,
-                 colour = "turquoise") +
+                 colour = "cornflowerblue") +
       geom_segment(aes(x = edades,
                        y = mean(df3_bracket$cigs_per_day),
                        xend = edades,
                        yend = mean_cigs_per_day),
-                   colour = "orange") +
+                   colour = "maroon") +
       geom_hline(yintercept = mean(df3_bracket$cigs_per_day),
-                 colour = "gray", linewidth = 1) +
+                 colour = "black", linewidth = 1) +
       theme(axis.text.x.bottom = element_text(angle = 20), text) +
       labs(title = 
              "Promedio de cigarrillos consumidos al día por rango de edades",
@@ -142,9 +142,66 @@ df1_cleaned$dystolic_pressure <- as.numeric(df1_cleaned$dystolic_pressure)
     
 ```
 
-## Measures
+En este gráfico se muestra la correlación lineal, viendo como se distancian las medias aritméticas de cada intervalo de edad respecto a la media general extraída en la primera tabla, 17.9 cigarros de media. Observamos que las medias más altas se encuentran en la parte izuierda del gráfico, es decir que le pertenecen en los intervalos de edades que comprenden a las personas más relativamente jóvenes en estudio. A partir de los 55 años, se puede apreciar un declive lineal en cuanto a los promedios de cigarros fumados al día, lo que se corresponde con las medidas númericas descriptivas de covariaza y correlación negativa halladas previamente.
 
-## Procedure
+## Cantidad de cigarros que consumen las personas dependiendo de su sexo
+
+De manera visual indicaremos que sexo dentro de la base datos consumen una mayor cantidad de cigarros por día, a través del análisis descriptivo y el gráfico que nos indica que generalmente el sexo mas propenso a consumir una mayor cantidad de cigarros al dia son los hombres mas que el grupo conformado por las mujeres.
+
+```{r}
+#Importación de la BBDD
+pacman::p_load(tidyverse, pacman, DescTools, moments, forcats, readr)
+setwd("C:/Users/arman/OneDrive/Escritorio/BBDD") 
+Smoker_G7 <- read.csv("Smoker G7.csv")
+
+#Limpieza de datos
+DF1 <- na.omit(Smoker_G7) %>% 
+  filter(current_smoker == "yes")
+  DF1$sex <- factor(DF1$sex)
+  DF1$current_smoker <- factor(DF1$current_smoker)
+
+# Winsorize cigs_per_day
+
+x <- DF1$cigs_per_day
+
+cigs_cleaned <- Winsorize(x, minval = NULL, maxval = NULL,
+                          probs = c(0,0.92), na.rm = TRUE, 
+                          type = 1)
+
+# Limpiar valores NA
+
+Smoker_G7$cigs_per_day[is.na(Smoker_G7$cigs_per_day)] <- 18
+
+DF1 <- Smoker_G7 %>%
+  filter(current_smoker == "yes")
+
+x <- DF1$cigs_per_day
+
+cigs_cleaned <- Winsorize(x, minval = NULL, maxval = NULL,
+                          probs = c(0,0.92), na.rm = TRUE, 
+                          type = 1)
+#Creación df_cleaned
+
+df1_cleaned <- DF1 %>% 
+  mutate(cigs_per_day = cigs_cleaned) %>% 
+  separate_wider_delim(
+    blood_pressure,
+    delim = "/",
+    names = c("systolic_pressure", "dystolic_pressure"))
+  
+df1_cleaned$systolic_pressure <- as.numeric(df1_cleaned$systolic_pressure)
+df1_cleaned$dystolic_pressure <- as.numeric(df1_cleaned$dystolic_pressure)
+
+df1_cleaned %>%
+  ggplot(aes(x = sex, y = cigs_per_day, fill = sex)) +
+  #geom_violin( width = 1.07) +
+  geom_boxplot(fill = c("pink","lightblue")) +
+  labs(title = "Distribución de consumo diario de cigarrillos respecto al sexo", x= "Sexo" , y = "Cigarrillos consumidos por día")
+```
+
+Este gráfico emplea el poderoso five point summary (Tukey, 1977) a través de modelos de cajas y bigotes. Podemos observar , que el 3er cuartil de la distribución de las mujeres fumadoras es igual a la mediana de los hombres; 20 cigarros al día. De esto podemos derivar que menos del 25% de las mujeres fumadoras en observación consumen cantidades mayores a las de un paquete estándar de 20 cigarros, contrastado con que, por el otro lado, el 50% de los hombres observados fuman 20 cigarros o más. Fumar más de un paquete por día perece ser mucho más común entre los hombres fumadores obseravdos.
+
+## Conclusión
 
 # Results
 
