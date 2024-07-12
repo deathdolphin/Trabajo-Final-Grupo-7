@@ -67,6 +67,8 @@ A traves del análisis descriptivo bivariante (coeficiente de correlacion de Pea
 |------------|-----------------------|
 | -5.30      | -0.07                 |
 
+La covarianza entre las dos variables edad y cigarros consumidos al día tiene un valor de covarianza negativo, lo que significa que tienen una relación negativa o inversa. A su vez, el índice de correlación, el cual nos indica la fuerza de la relación negativa antes descubierta es de -0.07. Teniendo en cuenta qu una relación inversa puede llegar a un máximo de -1, ésta correlación parece ser muy tenue.
+
 ## Measures
 
 ## Procedure

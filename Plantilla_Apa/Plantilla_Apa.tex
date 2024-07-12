@@ -114,12 +114,12 @@
 
 
 
-\title{Análisis Estadístico Descriptivo Sobre 1932 Fumadores,
-Correlación Entre Edad y Cigarros Consumidos Al Día, Diferencias de
-Consumo Entre Hombres y Mujeres}
+\title{Análisis Estadístico Descriptivo: Fumadores, Correlación Entre
+Edad y Cigarros Fumados Al Día, Diferencias de Consumo Entre Hombres y
+Mujeres}
 
 
-\shorttitle{Análisis Estadístico Descriptivo sobre 1932 fumadores}
+\shorttitle{Análisis Estadístico Descriptivo de 1932 Fumadores}
 
 
 \usepackage{etoolbox}
@@ -153,13 +153,13 @@ Probabilidad}}
 
 
 
-\abstract{En este trabajo de investigacion se realizar un analisis
+\abstract{En este trabajo de investigacion se realiza un análisis
 descriptivo sobre una base de datos que contiene un numero de
 observaciones plasmadas en un registro con 3900 hombres y mujeres que
 son fumadores, a traves del uso de graficos y de estadisticas
 descriptivas, para obtener informacion y posteriormente hacer un estudio
 que nos permita conocer si existe una relacion entre la edad de las
-personas, su sexo y el numero de cigarros que consumen por dia.Lo que
+personas, su sexo y el numero de cigarros que consumen por dia. Lo que
 sea desea tener como resultado de este trabajo de investigacion es una
 estimacion basica enfocada a todos lo registros que contienen
 informacion de las personas que son fumadoras regulares, y de forma
@@ -251,11 +251,27 @@ cigarros que fumen por dia}
 
 \section{Análisis Descriptivo}\label{anuxe1lisis-descriptivo}
 
-A continuacion, en las siguientes tablas se muestram estadísticas
-descriptivas para las variables en estudio, Toda la informacion empleada
-para el manejo de la base de datos fue extraida de
-\url{https://www.kaggle.com/datasets/jacepranter/smoker-health-data,} en
-la cual hay un total de 3900 registros de fumadores y ex-fumadores.
+A continuacion, en las siguientes tablas se muestran estadísticas
+descriptivas para las variables en estudio, Toda la informacion respecto
+a los datos a manejar fue extraida de
+\url{https://www.kaggle.com/datasets/jacepranter/smoker-health-data,} de
+la cual se estudia solo a los 1932 fumadores activos de entre los 3900
+registros que incluyen ex-fumadores.
+
+\begin{itemize}
+\item
+  En promedio, los fumadores consumen 18 cigarros diariamente, con una
+  desviación estándar de 9 cigarros. Menos del 25\% de ellos fuma más de
+  20 cigarros (un paquete) por día. La distribución es asimétrica
+  positiva, y leptocúrtica.
+\item
+  En promedio, los fumadores tienen 48 años de edad, con una desviación
+  estándar de 8 años. El 75\% de ellos tiene 53 años o menos. La
+  distribución es asimétrica positiva , y leptocúrtica.
+\item
+  De todas las personas en observación, 1105 son de sexo masculino, y
+  827 de sexo femenino. Representando el 57\% y 43\% respectivamente.
+\end{itemize}
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1562}}
@@ -315,10 +331,10 @@ EDAD & 47.7 & 7.97 & 41 & 46 & 53 & 0.51 & 2.40 \\
 \end{longtable}
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.0864}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2593}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2593}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.3951}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2083}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2222}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2222}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.3472}}@{}}
 \caption{Frecuencias Relativas de los Fumadores Respecto a su
 Sexo}\tabularnewline
 \toprule\noalign{}
@@ -352,33 +368,31 @@ F & 827 & 0.43 & 43\% \\
 TOTAL & 1932 & 1 & 1 \\
 \end{longtable}
 
-Tabla 2. Frecuencia Relativas de la Distribución Por Sexo
+\subsection{Análisis Bivariante: ¿Existe relacion entre la edad de los
+fumadores y la cantidad de cigarros que consumen al
+día?}\label{anuxe1lisis-bivariante-existe-relacion-entre-la-edad-de-los-fumadores-y-la-cantidad-de-cigarros-que-consumen-al-duxeda}
 
-\begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.1067}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.1733}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2933}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.4267}}@{}}
+A traves del análisis descriptivo bivariante (coeficiente de correlacion
+de Pearson) y el uso de graficos se determino que existe una correlacion
+lineal inversa entre el numero de cigarros que fuma una persona y su
+edad
+
+\begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
-\begin{minipage}[b]{\linewidth}\raggedright
-Sexo
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Frecuencia
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Frecuencia Relativa
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Frecuencia Relativa Porcentual
-\end{minipage} \\
+Covarianza & Índice de Correlación \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-Hombre & 1105 & 0.57 & 57\% \\
-Mujer & 827 & 0.43 & 43\% \\
-Total & 1932 & 1 & 100\% \\
+-5.30 & -0.07 \\
 \end{longtable}
 
-\subsection{Participants}\label{participants}
+La covarianza entre las dos variables edad y cigarros consumidos al día
+tiene un valor de covarianza negativo, lo que significa que tienen una
+relación negativa o inversa. A su vez, el índice de correlación, el cual
+nos indica la fuerza de la relación negativa antes descubierta es de
+-0.07. Teniendo en cuenta qu una relación inversa puede llegar a un
+máximo de -1, ésta correlación parece ser muy tenue.
 
 \subsection{Measures}\label{measures}
 
