@@ -23,7 +23,7 @@ affiliations:
     name: Universidad Central De Venezuela
   - id: DSP
     name: Departamento de Estadística y Probabilidad
-abstract: "En este trabajo de investigacion se realizar un analisis descriptivo sobre una base de datos que contiene un numero de observaciones plasmadas en un registro con 3900 hombres y mujeres que son fumadores, a traves del uso de graficos y de estadisticas descriptivas, para obtener informacion y posteriormente hacer un estudio que nos permita conocer si existe una relacion entre la edad de las personas, su sexo y el numero de cigarros que consumen por dia. Lo que sea desea tener como resultado de este trabajo de investigacion es una estimacion basica enfocada a todos lo registros que contienen informacion de las personas que son fumadoras regulares, y de forma practica a traves del uso de graficos explicar las caracteristicas que posee una persona fumadora acorde a su sexo, edad y la cantidad de cigarros que fumen por dia"
+abstract: "En este trabajo de investigacion se realiza un análisis descriptivo sobre una base de datos que contiene un numero de observaciones plasmadas en un registro con 3900 hombres y mujeres que son fumadores, a traves del uso de graficos y de estadisticas descriptivas, para obtener informacion y posteriormente hacer un estudio que nos permita conocer si existe una relacion entre la edad de las personas, su sexo y el numero de cigarros que consumen por dia. Lo que sea desea tener como resultado de este trabajo de investigacion es una estimacion basica enfocada a todos lo registros que contienen informacion de las personas que son fumadoras regulares, y de forma practica a traves del uso de graficos explicar las caracteristicas que posee una persona fumadora acorde a su sexo, edad y la cantidad de cigarros que fumen por dia"
 
 keywords: [keyword1, keyword2, keyword3]
 bibliography: bibliography.bib
@@ -52,14 +52,20 @@ A continuacion, en las siguientes tablas se muestran estadísticas descriptivas 
 : Estadística Descriptiva Sobre las Variables Cuantitativas
 
 | Sexo  | Frecuencia Absoluta | Frecuencia Relativa | Frecuencia Relativa Porcentual |
-|-------|---------------------|---------------------|--------------------------------|
+|---------------|----------------|----------------|-------------------------|
 | M     | 1105                | 0.57                | 57%                            |
 | F     | 827                 | 0.43                | 43%                            |
 | TOTAL | 1932                | 1                   | 1                              |
 
 : Frecuencias Relativas de los Fumadores Respecto a su Sexo
 
-## Análisis Bivariante: ¿Existe relacion entre la edad de un fumadcigarros que una persona consuma al dia y su edad?
+## Análisis Bivariante: ¿Existe relacion entre la edad de los fumadores y la cantidad de cigarros que consumen al día?
+
+A traves del análisis descriptivo bivariante (coeficiente de correlacion de Pearson) y el uso de graficos se determino que existe una correlacion lineal inversa entre el numero de cigarros que fuma una persona y su edad
+
+| Covarianza | Índice de Correlación |
+|------------|-----------------------|
+| -5.30      | -0.07                 |
 
 ## Measures
 
