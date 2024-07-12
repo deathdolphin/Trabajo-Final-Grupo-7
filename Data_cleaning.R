@@ -32,6 +32,7 @@ DF1 <- Smoker_G7 %>%
   filter(current_smoker == "yes")
 
 x <- DF1$cigs_per_day
+
 cigs_cleaned <- Winsorize(x, minval = NULL, maxval = NULL,
                           probs = c(0,0.92), na.rm = TRUE, 
                           type = 1)
