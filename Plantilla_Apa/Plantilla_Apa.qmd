@@ -50,7 +50,7 @@ Al momento de finalizar todo el proceso de filtrado, depuración y ordenamiento 
 
 # Análisis Descriptivo
 
-A continuacion, en las siguientes tablas se muestran estadísticas descriptivas para las variables en estudio, Toda la informacion respecto a los datos a manejar fue extraída de <https://www.kaggle.com/datasets/jacepranter/smoker-health-data,> de la cual se estudia solo a los 1932 fumadores activos de entre los 3900 registros que incluyen ex-fumadores.
+A continuacion, en las siguientes tablas se muestran estadísticas descriptivas para las variables en estudio,
 
 -   En promedio, los fumadores consumen 18 cigarros diariamente, con una desviación estándar de 9 cigarros. Menos del 25% de ellos fuma más de 20 cigarros (un paquete) por día. La distribución es asimétrica positiva, y leptocúrtica.
 
@@ -225,7 +225,7 @@ Dentro de este análisis estadistico descriptivo se han obtenido como resultados
 
 Así, se ha podido dar respuesta a las preguntas planteadas en este trabajo, pudiendo resumir en que, en promedio, de entre 1932 fumadores observados: los hombres fuman más que las mujeres, y los de una edad determinada suelen fumar más que las personas mayores a ellos.
 
-## Bibliografía
+# Bibliografía
 
 Tukey, J.W (1977) *Exploratory Data Analysis.*
 
