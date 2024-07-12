@@ -134,7 +134,7 @@ df1_cleaned$dystolic_pressure <- as.numeric(df1_cleaned$dystolic_pressure)
                        yend = mean_cigs_per_day),
                    colour = "orange") +
       geom_hline(yintercept = mean(df3_bracket$cigs_per_day),
-                 colour = "gray", size = 1) +
+                 colour = "gray", linewidth = 1) +
       theme(axis.text.x.bottom = element_text(angle = 20), text) +
       labs(title = 
              "Promedio de cigarrillos consumidos al día por rango de edades",
