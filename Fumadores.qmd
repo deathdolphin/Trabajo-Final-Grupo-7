@@ -31,7 +31,7 @@ Al momento de finalizar todo el proceso de filtrado, depuracion y ordenamiento d
 
 A continuacion, en la siguiente tabla se mostraran todas la estadisticas descriptivas para las 8 variables en estudio,
 
-##### espacio para la tabla de  estadisticas descriptivas
+##### espacio para la tabla de estadisticas descriptivas
 
 ## ¿Existe algina relacion entre el numero de cigarros que una persona consuma al dia y su edad?
 
@@ -81,3 +81,7 @@ df1_cleaned %>%
 *En este grafico se presenta de manera practica el sexo que tiende a fumar mas dentro de la base de datos, Siendo el sexo masculino quien poseen una mayor cantidad de registros dentro de la data*
 
 ## Conclusiones
+
+Dentro del analisis estadistico realizado a esta base de datos enfocada a una poblacion de fumadores, enfocandonos en las variables "cigs_per_day", "sex" y "age" obteniendo como resultado una correlacion lineal inversa en cuanto a la edad de una persona y la cantidad cde cigarros que consumian por dia, esto quiere decir que mientras mas edad tenia una persona menos consumo de cigarros tenia, a diferencia que mientras menos edad mas grande era la cantidad de cigarros que consumian por dia.
+
+En cuanto al sexo, nuestra base de datos nos indicaba que el sexo con mayor consumo de cigarros por dia eran los hombre. Estos lo pudimos observar mediante graficos que nos permitieron determinar todo el analisis estadistico que se realizo a esta tres variables y a la poblacion de fumadores que esta dat contenia
