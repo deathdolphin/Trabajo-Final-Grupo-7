@@ -13,39 +13,71 @@ Lo que sea desea tener como resultado de este trabajo de investigacion es una es
 
 Toda la informacion empleada para el manejo de la base de datos fue extraida de https://www.kaggle.com/datasets/jacepranter/smoker-health-data, en la cual hay un total de 3900 registros de fumadores.
 
-## Analisis descriptivo
+## ¿De que manera se manejo la base de datos suministrada?
+
+El analisis exploratorio de datos es una forma de analizar datos definidos por Jonh W. Tukey, el cual es el tratamiento estadistico al que se somete las muestras recogidas durante un proceso de investigacion en cualquier campo cientifico
+
+Antes de manejar la base de datos, conviene analizar los datos que se utilizaran. Esto permite observar las caracteristicas fundamentales de los mismos y comprender la estreuctura del conjuto de los datos, identificando la varieble que se tiene como objetivo y explorar las posibles tecnicas de modelado. (Tukey, J.W, 1977)
+
+En este trabajo de investigacion se extrajo toda la informacion necesaria de la base de datos de la siguiente manera:
+
+Lo primero que se llevo a cabo fue observar como dse comportaban los datos y si dentro de la base de datos habian registros con valores nulos (En el caso de la columna que contiene a la variable "cigs_per_day" se encontraban 14 registros con valores nulos). Una vez sabiendo todo esto lo siguiente que se realizo fue la depuracion de la data, filtrando solo los registros que son relevantes los cuales son aquellos que contienen a las poersonas que son fumadoras.
+
+Luego de hacer es proceso de depuracion, se estudiaron a las variables "sex" y "age" para determinar que tanto abarcaban esta dos variables dentro de la base de datos, ordenandolas de forma ascendente para hacer mas facil el manejo de dichas variables dentro de la base de datos.
+
+Al momento de finalizar todo el proceso de filtrado, depuracion y ordenamiento de los registros se procedio a realizar graficos que facilitaran las interpretaciones de los datos y asi poder transmitir de forma clara todos los resultados obtenidos de la investigacion
+
+##Analisis descriptivo
 
 A continuacion, en la siguiente tabla se mostraran todas la estadisticas descriptivas para las 8 variables en estudio,
 
-
-
-
+##### espacio para la tabla de  estadisticas descriptivas
 
 ## ¿Existe algina relacion entre el numero de cigarros que una persona consuma al dia y su edad?
 
 A traves del analisis descriptivo bivariate (coeficiente de correlacion de Pearson) y el uso de graficos se determino que existe una correlacion lineal inversa entre el numero de cigarros que fuma una persona y su edad
 
+**1er Grafico, correlacion entre la variable "cigs_per_day" y "age"**
+
 ```{r Correlacion entre edad y cigarros consumidos por dia}
-df1_cleaned %>%
-  ggplot(aes(x = age, y = cigs_per_day, color = sex)) +
-  geom_point() +
-  geom_smooth()
+y <- df3_bracket %>%
+      group_by(edades) %>%
+      summarise(mean_cigs_per_day = mean(cigs_per_day)) %>%
+      ggplot(aes(x = edades, y = mean_cigs_per_day)) +
+      geom_point(size = 3,
+                 colour = "cornflowerblue") +
+      geom_segment(aes(x = edades,
+                       y = mean(df3_bracket$cigs_per_day),
+                       xend = edades,
+                       yend = mean_cigs_per_day),
+                   colour = "maroon") +
+      geom_hline(yintercept = mean(df3_bracket$cigs_per_day),
+                 colour = "black", size = 1) +
+      theme(axis.text.x.bottom = element_text(angle = 20), text) +
+      labs(title = 
+             "Promedio de cigarrillos consumidos al día por rango de edades",
+           x ="", y = "cigarrillos consumidos al día")
+
+ggplotly(y)
 ```
 
-## Cigarros que consumen las personas dependiendo de su sexo
+*En este grafico se muestra la correlacion lineal inversa(esto significa que mientras una variable aumenta de valor la otra disminuye y viceversa) que existe en la cantidad de cigarros que fuma una persona y su edad*
+
+## Cantidad de cigarros que consumen las personas dependiendo de su sexo
 
 De manera visual indicaremos que sexo dentro de la base datos consumen mas cigarros al dia, a traves del analisis descriptivo y el grafico que nos indica que generalmente el sexo mas propenso a consumir una mayor cantidad de cigarros al dia son los hombres mas que el grupo conformado por las mujeres
+
+\*\*2do Grafico; ¿Quienes fuman mas los hombres o las mujeres?
 
 ```{r ¿Que sexo consume mas cigarros al dia los hombres o las mujeres?}
 
 df1_cleaned %>%
   ggplot(aes(x = sex, y = cigs_per_day, fill = sex)) +
   #geom_violin( width = 1.07) +
-  geom_boxplot()
+  geom_boxplot(fill = c("pink","lightblue"))
 
 ```
+
+*En este grafico se presenta de manera practica el sexo que tiende a fumar mas dentro de la base de datos, Siendo el sexo masculino quien poseen una mayor cantidad de registros dentro de la data*
+
 ## Conclusiones
-
-
-
-
